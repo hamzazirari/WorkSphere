@@ -4,6 +4,8 @@ const closeBtnModal = document.getElementById("close-modal");
 const expContainer = document.getElementById("exp-container");
 const addExpBtn = document.getElementById("add-exp");
 
+const employees = [];
+
 
 //OUVERTURE MODAL EMPLOYER................
 openBtnModal.addEventListener("click", () => {
@@ -57,6 +59,8 @@ addExp.addEventListener("click", () => {
     const iconTrash = document.createElement("i");
     iconTrash.className = "cursor-pointer fa-solid fa-trash";
     btnDeleteExp.appendChild(iconTrash);
+
+
     btnDeleteExp.addEventListener("click", () => {
         expDiv.remove();
     });
@@ -66,13 +70,13 @@ addExp.addEventListener("click", () => {
 
 
 
-//------------Ajouteer------------
+//------------------------------------Ajouteer------------
 const formEmployer = document.getElementById("form-employer");
 
 formEmployer.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    //------------------------REGEX--------
+            //------------------------REGEX--------
 
     const nomComplet = document.getElementById("input-nom");
     const inputEmail = document.getElementById("input-email");
@@ -99,4 +103,50 @@ formEmployer.addEventListener("submit", (e) => {
         return;
     }
 
+
+    const role = document.getElementById("role-empl");
+    const photo = document.getElementById("input-photo").value;
+
+    const newEmployer = {
+        nom: nomComplet.value,
+        role: role.value,
+        photo: photo,
+        email: inputEmail.value,
+        telephone: inputTele.value,
+        experiences: []
+    };
+
+    const expItems = document.querySelectorAll(".exp-item");
+
+    expItems.forEach((item) => {
+        const inputs = item.querySelectorAll("input,textarea");
+
+        const expObjet = {
+            poste: inputs[0].value,
+            entreprise: inputs[1].value,
+            periode: inputs[2].value,
+            description: inputs[3].value
+        };
+        newEmployer.experiences.push(expObjet);
+    });
+
+
+
+
+    employees.push(newEmployer);
+    console.log("employees", employees);
+
 });
+
+function afficherEmployer(){
+
+    const div = document.getElementById("employe-list");
+    div.innerHTML ="";
+
+    employees.forEach((emp)=>{
+        const card = document.createElement("div");
+
+
+    });
+
+};
