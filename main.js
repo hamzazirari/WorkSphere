@@ -6,6 +6,42 @@ const addExpBtn = document.getElementById("add-exp");
 
 const employees = [];
 
+const zones = {
+    reception: {
+        roles: ["Réceptionniste", "Manager", "Nettoyage"],
+        max: 2,
+        employees: []
+    },
+    serveurs: {
+        roles: ["Technicien IT", "Manager"],
+        max: 2,
+        employees: []
+    },
+    securite: {
+        roles: ["Agent de sécurité", "Manager"],
+        max: 3,
+        employees: []
+    },
+    personnel: {
+        roles: ["*"], // kolchi peut entrer
+        max: 5,
+        employees: []
+    },
+    conference: {
+        roles: ["*"], //  kolchi peut entrer
+        max: 10,
+        employees: []
+    },
+    archives: {
+        roles: ["Manager", "Réceptionniste", "Technicien IT", "Agent de sécurité"],
+        max: 2,
+        employees: []
+    }
+};
+
+
+
+
 
 //OUVERTURE MODAL EMPLOYER................
 openBtnModal.addEventListener("click", () => {
