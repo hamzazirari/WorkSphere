@@ -87,13 +87,13 @@
 
         <div id="salle-conference" class="col-start-1 col-end-3 row-start-1 row-end-2 bg-red-400 border-2 border-black">
             <h1 class="flex justify-center font-bold">salle de conference</h1>
-            <button type="button"
+            <button type="button" id="conference-button"
                 class=" rounded-lg text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">+</button>
         </div>
 
         <div id="reception" class="col-start-1 col-end-3 row-start-2 row-end-4 bg-red-400 border-2 border-black">
             <h1 class="flex justify-center font-bold">reception</h1>
-            <button type="button"
+            <button type="button" id="reception-button"
                 class=" rounded-lg text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">+</button>
         </div>
 
@@ -101,28 +101,28 @@
         <div id="serveurs"
             class="col-start-5 col-end-5 row-start-1 row-end-1 bg-yellow-400 row-end-2 border-2 border-black">
             <h1 class="flex justify-center font-bold">serveurs</h1>
-            <button type="button"
+            <button type="button" id="serveurs-button"
                 class=" rounded-lg text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">+</button>
         </div>
 
 
         <div id="securite" class=" col-start-4 col-end-4 row-start-1 row-end-1 bg-yellow-400 border-2 border-black">
             <h1 class="flex justify-center font-bold">securite</h1>
-            <button type="button"
+            <button type="button" id="securite-button"
                 class="rounded-lg text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">+</button>
         </div>
 
 
         <div id="personnel" class=" col-start-4 col-end-4 row-start-3 row-end-4 bg-blue-400 border-2 border-black">
             <h1 class="flex justify-center font-bold">personnel</h1>
-            <button type="button"
+            <button type="button" id="personnel-button"
                 class="rounded-lg text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">+</button>
         </div>
 
 
         <div id="archives" class=" col-start-5 col-end-5  row-start-3 row-end-4  bg-blue-400 border-2 border-black">
             <h1 class="flex justify-center font-bold">archives</h1>
-            <button type="button"
+            <button type="button" id="archives-button"
                 class="rounded-lg text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">+</button>
         </div>
 
@@ -138,6 +138,22 @@
 
                 <div id="info-content" class="flex flex-col items-center gap-2 text-center overflow-y-auto max-h-80">
                     <!--  infos ici dial employ -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--MODAL LISTE EMPLOYER DANS LA CHAMBRE-->
+    <section>
+        <div id="modal-chambre" class=" hidden fixed inset-0 bg-black/50 flex items-center justify-center  ">
+            <div class="bg-white w-80 p-6 rounded-lg relative">
+                <button id="close-info" class="absolute top-3 right-3">
+                    <i class="fa-solid fa-xmark text-2xl cursor-pointer"></i>
+                </button>
+
+                <div id="employer-eligible" class="flex flex-col items-center gap-2 text-center overflow-y-auto max-h-80">
+                    <!--  employer eligible -->
+                      <h1 class="font-bold text-green-400">Les Employer Eligible pour cette chambre</h1>
                 </div>
             </div>
         </div>

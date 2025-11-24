@@ -319,3 +319,71 @@ function afficherEmployer() {
 
 
 };
+
+//fonction des chambre
+
+function peutEntrerZone(employee, zoneName) {
+    const zone = zones[zoneName];
+
+    //verifier wch zone 3amra
+    if (zone.employees.lenght >= zone.max) {
+        return false;
+    }
+
+    //verifier wch chambre est pour tout le monde
+
+    if (zone.roles.includes("*")) {
+        return true;
+    }
+
+    //verifier wch le role dial employer est autorise
+
+    return zone.roles.includes(employee.role);
+}
+
+//les boutton des chambres 
+const btnConference = document.getElementById("conference-button");
+const btnReception = document.getElementById("reception-button");
+const btnServeur = document.getElementById("serveurs-button");
+const btnSecurite = document.getElementById("securite-button");
+const btnPersonnele = document.getElementById("personnel-button");
+const btnarchives = document.getElementById("archives-button");
+
+btnConference.addEventListener("click",()=>{
+    ouvrireModalChambre("conference");
+});
+
+btnReception.addEventListener("click",()=>{
+    ouvrireModalChambre("reception");
+});
+
+btnSecurite.addEventListener("click",()=>{
+    ouvrireModalChambre("securite");
+});
+
+btnServeur.addEventListener("click",()=>{
+    ouvrireModalChambre("serveurs");
+});
+
+btnarchives.addEventListener("click",()=>{
+    ouvrireModalChambre("archives");
+});
+
+btnPersonnele.addEventListener("click",()=>{
+    ouvrireModalChambre("personnel");
+});
+
+//fonction ouvrir modal
+
+function ouvrireModalChambre(zoneId){
+    const modalChambre = document.getElementById("modal-chambre");
+    modalChambre.classList.remove("hidden");
+
+    currentZone = zoneId;
+
+    afficherEmployerEligible(zoneId);
+}
+
+function afficherEmployerEligible(zoneId){
+    
+}
