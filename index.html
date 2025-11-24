@@ -41,12 +41,12 @@
             <form id="form-employer" class="flex flex-col gap-4">
                 <input id="input-nom" type="text" placeholder="Nom complet" class="border rounded-lg p-2 " required>
                 <select name="role" id="role-empl" class="border rounded-lg p-2" required>
-                    <option value="" disabled selected>Rôle</option>
-                    <option value="">Réceptionniste</option>
-                    <option value="">Technicien IT</option>
-                    <option value="">Agent de sécurité</option>
-                    <option value="">Manager</option>
-                    <option value="">Nettoyage</option>
+                    <option value="Rôle" disabled selected>Rôle</option>
+                    <option value="Réceptionniste">Réceptionniste</option>
+                    <option value="Technicien IT">Technicien IT</option>
+                    <option value="Agent de sécurité">Agent de sécurité</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Nettoyage">Nettoyage</option>
                 </select>
 
                 <input id="input-photo" type="text" placeholder="Photo (URL)" class="border rounded-lg p-2 " required>
@@ -127,6 +127,21 @@
         </div>
 
     </main>
+
+
+    <section>
+        <div id="modal-info" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center  ">
+            <div class="bg-white w-80 p-6 rounded-lg relative">
+                <button id="close-info" class="absolute top-3 right-3">
+                    <i class="fa-solid fa-xmark text-2xl cursor-pointer"></i>
+                </button>
+
+                <div id="info-content" class="flex flex-col items-center gap-2 text-center overflow-y-auto max-h-80">
+                    <!--  infos ici dial employ -->
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <script src="main.js"></script>
