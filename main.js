@@ -349,33 +349,33 @@ const btnSecurite = document.getElementById("securite-button");
 const btnPersonnele = document.getElementById("personnel-button");
 const btnarchives = document.getElementById("archives-button");
 
-btnConference.addEventListener("click",()=>{
+btnConference.addEventListener("click", () => {
     ouvrireModalChambre("conference");
 });
 
-btnReception.addEventListener("click",()=>{
+btnReception.addEventListener("click", () => {
     ouvrireModalChambre("reception");
 });
 
-btnSecurite.addEventListener("click",()=>{
+btnSecurite.addEventListener("click", () => {
     ouvrireModalChambre("securite");
 });
 
-btnServeur.addEventListener("click",()=>{
+btnServeur.addEventListener("click", () => {
     ouvrireModalChambre("serveurs");
 });
 
-btnarchives.addEventListener("click",()=>{
+btnarchives.addEventListener("click", () => {
     ouvrireModalChambre("archives");
 });
 
-btnPersonnele.addEventListener("click",()=>{
+btnPersonnele.addEventListener("click", () => {
     ouvrireModalChambre("personnel");
 });
 
 //fonction ouvrir modal
 
-function ouvrireModalChambre(zoneId){
+function ouvrireModalChambre(zoneId) {
     const modalChambre = document.getElementById("modal-chambre");
     modalChambre.classList.remove("hidden");
 
@@ -384,6 +384,15 @@ function ouvrireModalChambre(zoneId){
     afficherEmployerEligible(zoneId);
 }
 
-function afficherEmployerEligible(zoneId){
-    
-}
+function afficherEmployerEligible(zoneId) {
+    const list = document.getElementById("employer-eligible");
+    list.innerHTML = "";
+
+    const zone = zones[zoneId];
+
+    employees.forEach(emp => {
+        if (zone.roles.includes(emp.role)) {
+
+        };
+    });
+};
