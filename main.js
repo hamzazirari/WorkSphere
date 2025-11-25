@@ -512,3 +512,9 @@ function afficherEmployerdansZone(zoneId){
         const btnDelete = document.createElement("button");
         btnDelete.className = "text-red-500";
         btnDelete.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+
+         // action supprimer de la zone
+        btnDelete.addEventListener("click", () => {
+            zone.employees = zone.employees.filter(e => e.id !== emp.id);
+            afficherEmployerdansZone(zoneId);
+        });
