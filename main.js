@@ -414,15 +414,32 @@ function afficherEmployerEligible(zoneId) {
 
         if (autorise) {
             const item = document.createElement("div");
-            item.className = " p-2 border-b flex justify-between";
-            item.innerHTML = `
-            <span>${emp.nom} (${emp.role})</span>
-            <button class="btn-add" data-id="${emp.id}">
-            Ajouter
-            </button>
-            `;
+            item.className = "p-2 border-b flex items-center justify-between w-full";
 
-            list.appendChild(item)
+            // div pour info employe
+            const infoDiv = document.createElement("div");
+            infoDiv.className = "flex items-center gap-2";
+
+            const img = document.createElement("img");
+            img.src = emp.photo;
+            img.className = "w-12 h-12 rounded-full";
+
+            const texte = document.createElement("div");
+            texte.innerHTML = `<p class="font-bold">${emp.nom}</p><p class="text-sm">${emp.role}</p>`;
+
+            infoDiv.appendChild(img);
+            infoDiv.appendChild(texte);
+
+            // bouton ajouter
+            const btn = document.createElement("button");
+            btn.className = "btn-add bg-green-500 text-white px-2 py-1 rounded";
+            btn.dataset.id = emp.id;
+            btn.textContent = "Ajouter";
+
+            item.appendChild(infoDiv);
+            item.appendChild(btn);
+
+            list.appendChild(item);
         }
     });
 
@@ -466,15 +483,15 @@ closeChambre.addEventListener("click", () => {
     modalChambre.classList.add("hidden");
 })
 
-function afficherEmployerdansZone(zoneId){
+function afficherEmployerdansZone(zoneId) {
     const zone = zones[zoneId];
     const container = document.getElementById(`${zoneId}-zone`);
-    container.innerHTML="";
+    container.innerHTML = "";
 
     zone.employees.forEach(emp => {
         const div = document.createElement("div");
-        div.className="p-1 border-b";
-        div.textContent=`${emp.nom} (${emp.role})`;
+        div.className = "p-1 border-b";
+        div.textContent = `${emp.nom} (${emp.role})`;
         container.appendChild(div);
     });
 }
