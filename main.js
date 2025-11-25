@@ -483,15 +483,28 @@ closeChambre.addEventListener("click", () => {
     modalChambre.classList.add("hidden");
 })
 
-function afficherEmployerdansZone(zoneId) {
+function afficherEmployerdansZone(zoneId){
     const zone = zones[zoneId];
     const container = document.getElementById(`${zoneId}-zone`);
     container.innerHTML = "";
 
     zone.employees.forEach(emp => {
+        // div principale pour la carte
         const div = document.createElement("div");
-        div.className = "p-1 border-b";
-        div.textContent = `${emp.nom} (${emp.role})`;
-        container.appendChild(div);
-    });
-}
+        div.className = "flex items-center justify-between p-2 border-b";
+
+        // partie info employe image w nom
+        const infoDiv = document.createElement("div");
+        infoDiv.className = "flex items-center gap-2";
+
+        const img = document.createElement("img");
+        img.src = emp.photo;
+        img.className = "w-10 h-10 rounded-full";
+
+        const nom = document.createElement("p");
+        nom.className = "font-bold";
+        nom.textContent = emp.nom;
+
+        infoDiv.appendChild(img);
+        infoDiv.appendChild(nom);
+    })
