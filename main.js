@@ -418,3 +418,16 @@ function afficherEmployerEligible(zoneId) {
     });
 };
 
+function ajouterEmployerDansZone(empId, zoneId) {
+
+    empId = Number(empId);
+
+    //trouver lemployer f tableau demployer 
+    let employerTrouve = null;
+
+    for (let i = 0; i < employees.length; i++) {
+        if (employees[i].id == empId) {
+            employerTrouve = employees[i];
+        }
+    }
+};
