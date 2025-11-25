@@ -471,5 +471,10 @@ function afficherEmployerdansZone(zoneId){
     const container = document.getElementById(`${zoneId}-zone`);
     container.innerHTML="";
 
- 
+    zone.employees.forEach(emp => {
+        const div = document.createElement("div");
+        div.className="p-1 border-b";
+        div.textContent=`${emp.nom} (${emp.role})`;
+        container.appendChild(div);
+    });
 }
