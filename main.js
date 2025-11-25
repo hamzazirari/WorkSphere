@@ -119,7 +119,7 @@ formEmployer.addEventListener("submit", (e) => {
     const inputEmail = document.getElementById("input-email");
     const inputTele = document.getElementById("input-tele");
 
-    let nomRegex = /^[a-zA-Z ]{2,30}$/;
+    let nomRegex = /^[a-zA-Z ]{5,30}$/;
 
     if (nomRegex.test(nomComplet.value) === false) {
         alert("Veuiller entrer seulement des caracteres et une espace");
@@ -144,6 +144,7 @@ formEmployer.addEventListener("submit", (e) => {
     const photo = document.getElementById("input-photo").value;
 
     const newEmployer = {
+        id: Date.now(),
         nom: nomComplet.value,
         role: role.value,
         photo: photo,
@@ -391,8 +392,29 @@ function afficherEmployerEligible(zoneId) {
     const zone = zones[zoneId];
 
     employees.forEach(emp => {
-        if (zone.roles.includes(emp.role)) {
+        const autorise =
+            zone.roles.includes("*") ||
+            zone.roles.includes(emp.role);
 
-        };
+        if (autorise) {
+            const item = document.createElement("div");
+            item.className = " p-2 border-b flex justify-between";
+            item.innerHTML = `
+            <span>${emp.nom} (${emp.role})</span>
+            <button class="btn-add" data-id="${emp.id}">
+            Ajouter
+            </button>
+            `;
+
+            list.appendChild(item)
+        }
+    });
+
+    document.querySelectorAll(".btn-add").forEach(btn => {
+        btn.addEventListener("click", function () {
+            const empId = this.dataset.id;
+            ajouterEmployerDansZone(empId, zoneId);
+        });
     });
 };
+
