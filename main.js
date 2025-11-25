@@ -483,7 +483,7 @@ closeChambre.addEventListener("click", () => {
     modalChambre.classList.add("hidden");
 })
 
-function afficherEmployerdansZone(zoneId){
+function afficherEmployerdansZone(zoneId) {
     const zone = zones[zoneId];
     const container = document.getElementById(`${zoneId}-zone`);
     container.innerHTML = "";
@@ -513,8 +513,15 @@ function afficherEmployerdansZone(zoneId){
         btnDelete.className = "text-red-500";
         btnDelete.innerHTML = `<i class="fa-solid fa-trash"></i>`;
 
-         // action supprimer de la zone
+        // action supprimer de la zone
         btnDelete.addEventListener("click", () => {
             zone.employees = zone.employees.filter(e => e.id !== emp.id);
             afficherEmployerdansZone(zoneId);
         });
+
+        div.appendChild(infoDiv);
+        div.appendChild(btnDelete);
+
+        container.appendChild(div);
+    });
+}
