@@ -507,4 +507,8 @@ function afficherEmployerdansZone(zoneId){
 
         infoDiv.appendChild(img);
         infoDiv.appendChild(nom);
-    })
+
+        // bouton supprimer
+        const btnDelete = document.createElement("button");
+        btnDelete.className = "text-red-500";
+        btnDelete.innerHTML = `<i class="fa-solid fa-trash"></i>`;
