@@ -327,7 +327,7 @@ function peutEntrerZone(employee, zoneName) {
     const zone = zones[zoneName];
 
     //verifier wch zone 3amra
-    if (zone.employees.lenght >= zone.max) {
+    if (zone.employees.length >= zone.max) {
         return false;
     }
 
@@ -385,6 +385,8 @@ function ouvrireModalChambre(zoneId) {
     afficherEmployerEligible(zoneId);
 }
 
+
+
 function afficherEmployerEligible(zoneId) {
     const list = document.getElementById("employer-eligible");
     list.innerHTML = "";
@@ -395,6 +397,20 @@ function afficherEmployerEligible(zoneId) {
         const autorise =
             zone.roles.includes("*") ||
             zone.roles.includes(emp.role);
+
+        //verifier si lemployer est deja kyn
+        let dejaDansZone = false;
+
+        for (let i = 0; i < zone.employees.length; i++) {
+            if (zone.employees[i].id === emp.id) {
+                dejaDansZone = true;
+                break;
+            }
+        }
+
+        if (dejaDansZone) {
+            return;
+        }
 
         if (autorise) {
             const item = document.createElement("div");
@@ -422,12 +438,31 @@ function ajouterEmployerDansZone(empId, zoneId) {
 
     empId = Number(empId);
 
-    //trouver lemployer f tableau demployer 
-    let employerTrouve = null;
+    const zone = zones[zoneId];
 
-    for (let i = 0; i < employees.length; i++) {
-        if (employees[i].id == empId) {
-            employerTrouve = employees[i];
-        }
+    if (zone.employees.length >= zone.max) {
+        alert("Cette chambre est pleine !");
+        return;
     }
+
+    //trouver lemployer f tableau demployer 
+    const employerTrouve = employees.find(emp => emp.id == empId);
+    console.log(employerTrouve);
+
+    if (!employerTrouve) {
+        console.log("Employer introuvable");
+        return;
+    }
+    zones[zoneId].employees.push(employerTrouve);
+
+    afficherEmployerEligible(zoneId);
+    afficherEmployerdansZone(zoneId);
 };
+
+const closeChambre = document.getElementById("close-chambre");
+const modalChambre = document.getElementById("modal-chambre");
+
+closeChambre.addEventListener("click", () => {
+    modalChambre.classList.add("hidden");
+})
+
