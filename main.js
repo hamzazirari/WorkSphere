@@ -466,3 +466,10 @@ closeChambre.addEventListener("click", () => {
     modalChambre.classList.add("hidden");
 })
 
+function afficherEmployerdansZone(zoneId){
+    const zone = zones[zoneId];
+    const container = document.getElementById(`${zoneId}-zone`);
+    container.innerHTML="";
+
+ 
+}
