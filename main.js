@@ -519,6 +519,7 @@ function afficherEmployerdansZone(zoneId) {
             afficherEmployerdansZone(zoneId);
         });
 
+        //ajouter 
         div.appendChild(infoDiv);
         div.appendChild(btnDelete);
 
