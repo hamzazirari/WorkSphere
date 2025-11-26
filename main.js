@@ -215,6 +215,22 @@ function afficherEmployer() {
     employerList.innerHTML = "";
 
     employees.forEach((emp) => {
+
+        // vérifier wch employe est deja assigne à une zone
+        let estAssigne = false;
+        for (let zoneName in zones) {
+            const zone = zones[zoneName];
+            for (let i = 0; i < zone.employees.length; i++) {
+                if (zone.employees[i].id === emp.id) {
+                    estAssigne = true;
+                }
+            }
+        }
+
+        // si l'employe est assigne, passer au suivant
+        if (estAssigne) return;
+
+
         const card = document.createElement("div");
 
         card.className = "border-2 border-black p-2 rounded-lg flex  items-center gap-1 bg-gray-300";
@@ -474,6 +490,7 @@ function ajouterEmployerDansZone(empId, zoneId) {
 
     afficherEmployerEligible(zoneId);
     afficherEmployerdansZone(zoneId);
+    afficherEmployer();
 };
 
 const closeChambre = document.getElementById("close-chambre");
@@ -516,6 +533,7 @@ function afficherEmployerdansZone(zoneId) {
         // action supprimer de la zone
         btnDelete.addEventListener("click", () => {
             zone.employees = zone.employees.filter(e => e.id !== emp.id);
+            afficherEmployer();
             afficherEmployerdansZone(zoneId);
         });
 
@@ -524,5 +542,6 @@ function afficherEmployerdansZone(zoneId) {
         div.appendChild(btnDelete);
 
         container.appendChild(div);
+        
     });
 }
